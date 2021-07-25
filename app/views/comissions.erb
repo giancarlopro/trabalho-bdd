@@ -1,0 +1,17 @@
+<% if @employee.nil? %>
+  <p class="message">Empregado não encontrado!</p>
+<% else %>
+  <h3>Comissões de <%= @employee.name %>:</h3>
+
+  <% if @commissions.empty? %>
+    <p class="message">Nenhuma comissão encontrada.</p>
+  <% else %>
+    <% @comissions.each_with_index do |comission, i| %>
+      <li id="comission_<%= i %>"><%= comission.value %> de <%= comission.invoice.total %></li>
+    <% end %>
+
+    <br />
+
+    <b>Total: <%= @comissions.map(&:value).inject(0, :+) %></b>
+  <% end %>
+<% end %>
