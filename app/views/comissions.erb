@@ -3,7 +3,7 @@
 <% else %>
   <h3>Comissões de <%= @employee.name %>:</h3>
 
-  <% if @commissions.empty? %>
+  <% if @comissions.empty? %>
     <p class="message">Nenhuma comissão encontrada.</p>
   <% else %>
     <% @comissions.each_with_index do |comission, i| %>
