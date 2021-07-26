@@ -22,3 +22,7 @@ task test: [:clear_db, :migrate_test] do
   sh 'RACK_ENV=test ruby app/db/migrate.rb'
   sh 'cucumber'
 end
+
+task :seed do
+  ruby 'app/db/seed.rb'
+end
