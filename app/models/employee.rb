@@ -1,7 +1,5 @@
-class Employee < Model
-  attr_accessor :name, :comission_rate
-
+class Employee < Sequel::Model
   def calculate_comission(value)
-    value * @comission_rate
+    value * self.comission_rate
   end
 end

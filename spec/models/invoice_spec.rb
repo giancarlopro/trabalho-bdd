@@ -1,18 +1,24 @@
-class FakeEmployee
-  def calculate_comission(value)
-    value * 0.1
-  end
-end
-
 RSpec.describe Invoice do
-  it_behaves_like 'a model'
-
   describe '#calculate_comission' do
     it 'calculates the comission' do
-      employee = FakeEmployee.new
-      invoice = Invoice.create(total: 100, employee: employee)
+      employee_id = Employee.insert(name: 'Roger', comission_rate: 0.1)
+      invoice_id = Invoice.insert(total: 100, employee_id: employee_id)
+
+      invoice = Invoice.find(id: invoice_id)
 
       expect(invoice.calculate_comission).to eq(10)
+    end
+  end
+
+  describe '#employee' do
+    it 'returns the employee' do
+      employee_id = Employee.insert(name: 'Roger', comission_rate: 0.1)
+      invoice_id = Invoice.insert(total: 100, employee_id: employee_id)
+
+      invoice = Invoice.find(id: invoice_id)
+      employee = Employee.find(id: employee_id)
+
+      expect(invoice.employee).to eq(employee)
     end
   end
 end

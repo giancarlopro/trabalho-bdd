@@ -1,3 +1,9 @@
-class Comission < Model
-  attr_accessor :value, :employee, :invoice
+class Comission < Sequel::Model
+  def employee
+    @employee ||= Employee.find(id: self.employee_id)
+  end
+
+  def invoice
+    @invoice ||= Invoice.find(id: self.invoice_id)
+  end
 end

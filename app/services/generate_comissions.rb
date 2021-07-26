@@ -6,14 +6,14 @@ class GenerateComissions
       invoices.each do |invoice|
         comission_value = invoice.calculate_comission
 
-        comissions << Comission.create(
+        comissions << Comission.insert(
           value: comission_value,
-          employee: invoice.employee,
-          invoice: invoice
+          invoice_id: invoice.id,
+          employee_id: invoice.employee.id,
         )
       end
 
-      comissions
+      comissions.map { |id| Comission.find(id: id) }
     end
   end
 end

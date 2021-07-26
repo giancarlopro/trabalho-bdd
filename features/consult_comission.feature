@@ -1,4 +1,5 @@
 # language: pt
+@javascript
 Funcionalidade: Consulta comissões
 
   Cenário: empregado não existe
