@@ -39,4 +39,6 @@ jobs:
         chmod +x geckodriver
         sudo mv geckodriver /usr/local/bin/
     - name: Run tests
+      env:
+        HEADLESS: true
       run: bundle exec rake test
