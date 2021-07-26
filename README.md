@@ -3,6 +3,7 @@
 Como um gerente RH
 Eu desejo calcular comissão de vendedores para pagar os vendedores
 
+Repositório com CI/CD configurado: [giancarlopro/trabalhobdd](https://github.com/giancarlopro/trabalho-bdd)
 
 ## Como rodar
 
