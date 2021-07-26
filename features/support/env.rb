@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'selenium-webdriver'
+
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', '..', 'app/app')
@@ -7,7 +10,6 @@ require 'capybara/cucumber'
 require 'rspec'
 
 Capybara.app = MyApp
-Capybara.javascript_driver = :selenium
 
 class MyAppWorld
   include Capybara::DSL
@@ -31,3 +33,5 @@ if ENV['HEADLESS'] == 'true'
     )
   end
 end
+
+Capybara.javascript_driver = :selenium
