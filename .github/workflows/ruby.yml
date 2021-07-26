@@ -31,9 +31,12 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - name: Start Selenoid Server
-      # You may pin to the exact commit or the version.
-      # uses: Xotabu4/selenoid-github-action@5c643de195faeead3c7796ffb3ed5135e5f595bf
-      uses: Xotabu4/selenoid-github-action@v2
+    - name: Install test dependencies
+      run: |
+        sudo apt install -y firefox wget
+        wget https://github.com/mozilla/geckodriver/releases/download/v0.28.0/geckodriver-v0.28.0-linux64.tar.gz
+        tar -xvzf geckodriver*
+        chmod +x geckodriver
+        sudo mv geckodriver /usr/local/bin/
     - name: Run tests
       run: bundle exec rake test
